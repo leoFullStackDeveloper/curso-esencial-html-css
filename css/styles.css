@@ -12,6 +12,8 @@
     --colorGrey1 : #808080;
     --colorGrey2 : #616161;
     --colorGrey3 : #212121;
+    --colorBlue1 : #0cbaba;
+    --colorBlue2 : blue;
 }
 
 
@@ -26,6 +28,7 @@ body{
 
 header{
 font-size: 14px;
+
 }
 
 .hero{
@@ -73,9 +76,34 @@ h2{
     /* font-family: fuenteDescargadaCharter; */
 }
 
-h3{
-    font-size: 1.5em;
+/* .section-numbers{
+    counter-reset: numbers;
+} */
+
+.section-numbers h3{
+    font-size: 1.5em; 
+    counter-increment: numbers;
 }
+
+.section-numbers h3::before{
+    content: counter(numbers)'.';
+    /* content: counter(numbers, upper-roman)'.'; */
+    margin-right: 10px;
+}
+
+.section-numbers h3::after{
+    content: '';
+    width: 32px;
+    height: 4px;
+    background-color: var(--colorGrey3);
+    display: block;
+}
+
+::selection{
+background-color: var(--colorBlue2);
+color: white;
+}
+
 
 pre{
     background: #FEC62E;
